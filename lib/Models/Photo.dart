@@ -13,11 +13,11 @@ String photoToJson(List<Photo> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Photo extends Equatable {
-  int albumId;
-  int id;
-  String title;
-  String url;
-  String thumbnailUrl;
+  final int albumId;
+  final int id;
+  final String title;
+  final String url;
+  final String thumbnailUrl;
 
   Photo({
     this.albumId,
@@ -45,5 +45,5 @@ class Photo extends Equatable {
       };
 
   @override
-  List<Object> get props => [id];
+  List<Object> get props => [id, albumId, url];
 }

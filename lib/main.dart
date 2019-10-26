@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:state_managment/BlocWithSealedUnionExample/blocs/ListBloc/ListBloc.dart';
 import 'package:state_managment/InhertedModelExample/MyInheritedModel.dart';
 import 'package:state_managment/Models/Photo.dart';
 import 'package:state_managment/ScopedModelExample/ui/MyModel.dart';
 
+import 'BlocWithSealedUnionExample/BlocWithSealedUnionExample.dart';
 import 'InhertedModelExample/InheritedModelExample.dart';
 import 'ScopedModelExample/ScopedModelExample.dart';
 import 'StatefullWidgetExample/StatefullWidgetExample.dart';
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScopedModel(),
+      home: HomeBlocWithSealedUnions(),
     );
   }
 }
@@ -39,6 +42,16 @@ class HomeInheritedModel extends StatelessWidget {
         <Photo>[],
       ),
       child: InheritedModelExample(),
+    );
+  }
+}
+
+class HomeBlocWithSealedUnions extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      builder: (_) => ListBloc(),
+      child: BlocWithSealedUnionExample(),
     );
   }
 }

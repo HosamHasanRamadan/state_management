@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:state_managment/BlocWithSealedUnionExample/blocs/ListBloc/ListBloc.dart';
 import 'package:state_managment/InhertedModelExample/MyInheritedModel.dart';
 import 'package:state_managment/Models/Photo.dart';
-import 'package:state_managment/ScopedModelExample/ui/MyModel.dart';
+import 'package:state_managment/ProviderExample/ProviderExample.dart';
+import 'package:state_managment/ScopedModelExample/ui/MyModel.dart'
+    as scoopedModel;
 
 import 'BlocWithSealedUnionExample/BlocWithSealedUnionExample.dart';
 import 'InhertedModelExample/InheritedModelExample.dart';
+import 'ProviderExample/ui/MyModel.dart' as providerModel;
 import 'ScopedModelExample/ScopedModelExample.dart';
 import 'StatefullWidgetExample/StatefullWidgetExample.dart';
 
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeBlocWithSealedUnions(),
+      home: HomeProvider(),
     );
   }
 }
@@ -59,9 +63,19 @@ class HomeBlocWithSealedUnions extends StatelessWidget {
 class HomeScopedModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScopedModel(
-      model: MyModel(),
+    return ScopedModel<scoopedModel.MyModel>(
+      model: scoopedModel.MyModel(),
       child: ScopedModelExample(),
+    );
+  }
+}
+
+class HomeProvider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<providerModel.MyModel>.value(
+      value: providerModel.MyModel(),
+      child: ProviderExample(),
     );
   }
 }

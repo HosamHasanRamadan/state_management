@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:state_managment/InhertedModelExample/MyInheritedModel.dart';
+import 'package:state_managment/MobXExample/MobXExmple.dart';
+import 'package:state_managment/MobXExample/ui/MyStore.dart';
 import 'package:state_managment/Models/Photo.dart';
 import 'package:state_managment/ProviderExample/ProviderExample.dart';
 import 'package:state_managment/ScopedModelExample/ui/MyModel.dart'
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeProvider(),
+      home: HomeMobX(),
     );
   }
 }
@@ -74,6 +76,16 @@ class HomeProvider extends StatelessWidget {
     return ChangeNotifierProvider<providerModel.MyModel>.value(
       value: providerModel.MyModel(),
       child: ProviderExample(),
+    );
+  }
+}
+
+class HomeMobX extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Provider<MyStore>.value(
+      value: MyStore(),
+      child: MobXExample(),
     );
   }
 }

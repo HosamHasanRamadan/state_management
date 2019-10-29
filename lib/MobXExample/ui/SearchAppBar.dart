@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import 'MyModel.dart';
+import 'MyStore.dart';
 
 class SearchAppBar {
   AppBar build(BuildContext context) {
-    final model = Provider.of<MyModel>(context);
+    final model = Provider.of<MyStore>(context);
     return AppBar(
       bottom: PreferredSize(
         preferredSize: Size(double.infinity, 15),
@@ -22,8 +23,9 @@ class SearchAppBar {
           padding: const EdgeInsets.only(right: 8.0),
           child: GestureDetector(
             onTap: () => onTap(model, context),
-            child: Consumer<MyModel>(
-              builder: (context, model, _) {
+            child: Observer(
+              builder: (_) {
+                final model = Provider.of<MyStore>(context);
                 return Icon(
                   model.isDeleteable ? Icons.cancel : Icons.filter_list,
                 );
@@ -35,9 +37,9 @@ class SearchAppBar {
     );
   }
 
-  onChanged(String text, MyModel model) => model.filter = text;
+  onChanged(String text, MyStore model) => model.filter = text;
 
-  onTap(MyModel model, BuildContext context) {
+  onTap(MyStore model, BuildContext context) {
     model.isDeleteable
         ? model.isDeleteable = false
         : showDialog(

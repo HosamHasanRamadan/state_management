@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'MyModel.dart';
+import 'package:state_managment/MobXExample/ui/MyStore.dart';
 
 class ListElement extends StatelessWidget {
   final String url;
@@ -19,7 +20,7 @@ class ListElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<MyModel>(context);
+    final model = Provider.of<MyStore>(context);
     final size = MediaQuery.of(context).size;
     return GestureDetector(
       child: Center(
@@ -36,12 +37,14 @@ class ListElement extends StatelessWidget {
                   ClipOval(child: Image.network(url)),
                   SizedBox(width: 10),
                   Flexible(flex: 1, child: Text(title)),
-                  Visibility(
-                    visible: model.isDeleteable,
-                    child: GestureDetector(
-                      onTap: onDelete,
-                      child: FittedBox(
-                          fit: BoxFit.fitHeight, child: Icon(Icons.delete)),
+                  Observer(
+                    builder: (_) => Visibility(
+                      visible: model.isDeleteable,
+                      child: GestureDetector(
+                        onTap: onDelete,
+                        child: FittedBox(
+                            fit: BoxFit.fitHeight, child: Icon(Icons.delete)),
+                      ),
                     ),
                   ),
                 ],

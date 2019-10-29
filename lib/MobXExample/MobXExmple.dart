@@ -1,8 +1,9 @@
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'ui/ListElement.dart';
-import 'ui/MyModel.dart';
+import 'ui/MyStore.dart';
 import 'ui/SearchAppBar.dart';
 
 class MobXExample extends StatefulWidget {
@@ -21,11 +22,11 @@ class _MobXExampleState extends State<MobXExample> with AfterLayoutMixin {
   }
 
   Widget buildBody(BuildContext context) {
-    final model = Provider.of<MyModel>(context);
+    final model = Provider.of<MyStore>(context);
     return GestureDetector(
       onLongPress: () => model.isDeleteable = !model.isDeleteable,
-      child: Consumer<MyModel>(
-        builder: (context, model, _) => ListView(
+      child: Observer(
+        builder: (_) => ListView(
           children: model.photos.map((value) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -46,7 +47,7 @@ class _MobXExampleState extends State<MobXExample> with AfterLayoutMixin {
 
   @override
   void afterFirstLayout(BuildContext context) {
-    final model = Provider.of<MyModel>(context);
+    final model = Provider.of<MyStore>(context);
     model.getAllPhotos();
   }
 }

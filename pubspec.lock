@@ -14,7 +14,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.38.1"
+    version: "0.36.4"
   args:
     dependency: transitive
     description:
@@ -161,7 +161,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.10"
+    version: "1.2.9"
   dio:
     dependency: "direct main"
     description:
@@ -195,6 +195,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  flutter_mobx:
+    dependency: "direct main"
+    description:
+      name: flutter_mobx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.3+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -206,7 +213,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.23"
+    version: "0.1.19"
   glob:
     dependency: transitive
     description:
@@ -276,7 +283,7 @@ packages:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.23"
+    version: "0.3.19"
   logging:
     dependency: transitive
     description:
@@ -305,6 +312,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
+  mobx:
+    dependency: "direct main"
+    description:
+      name: mobx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.9+1"
+  mobx_codegen:
+    dependency: "direct dev"
+    description:
+      name: mobx_codegen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.9+1"
   node_interop:
     dependency: transitive
     description:
@@ -410,20 +431,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2+2"
-  sealed_unions_annotations:
-    dependency: "direct main"
-    description:
-      name: sealed_unions_annotations
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
-  sealed_unions_generator:
-    dependency: "direct dev"
-    description:
-      name: sealed_unions_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   shelf:
     dependency: transitive
     description:
@@ -449,7 +456,7 @@ packages:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.4+5"
+    version: "0.9.4+4"
   source_span:
     dependency: transitive
     description:

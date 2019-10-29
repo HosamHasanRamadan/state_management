@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:state_managment/BlocWithSealedUnionExample/blocs/ListBloc/ListBloc.dart';
 import 'package:state_managment/InhertedModelExample/MyInheritedModel.dart';
 import 'package:state_managment/Models/Photo.dart';
 import 'package:state_managment/ProviderExample/ProviderExample.dart';
 import 'package:state_managment/ScopedModelExample/ui/MyModel.dart'
     as scoopedModel;
 
-import 'BlocWithSealedUnionExample/BlocWithSealedUnionExample.dart';
 import 'InhertedModelExample/InheritedModelExample.dart';
 import 'ProviderExample/ui/MyModel.dart' as providerModel;
 import 'ScopedModelExample/ScopedModelExample.dart';
@@ -50,15 +48,15 @@ class HomeInheritedModel extends StatelessWidget {
   }
 }
 
-class HomeBlocWithSealedUnions extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (_) => ListBloc(),
-      child: BlocWithSealedUnionExample(),
-    );
-  }
-}
+// class HomeBlocWithSealedUnions extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       builder: (_) => ListBloc(),
+//       child: BlocWithSealedUnionExample(),
+//     );
+//   }
+// }
 
 class HomeScopedModel extends StatelessWidget {
   @override
